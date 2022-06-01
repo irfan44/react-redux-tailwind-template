@@ -22,14 +22,30 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "npm run lint && react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .js,.ts,.tsx src/"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+      "react",
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "react/jsx-max-depth": [
+        2,
+        {
+          "max": 4
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [
